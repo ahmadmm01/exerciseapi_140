@@ -57,7 +57,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Data Berhasil Disimpan')));
                 }
               },
-              child: const Text('Simpan'),
+              child: const Text('Tambah'),
             ),
           ],
         ),
