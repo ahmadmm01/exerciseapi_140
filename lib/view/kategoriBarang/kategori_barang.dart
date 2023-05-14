@@ -27,6 +27,10 @@ class _KategoriBarangState extends State<KategoriBarang> {
     });
   }
 
+  void deleteKategoriBarang(int id) async {
+    await kategoriBarangController.deleteKategoriBarang(id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +52,19 @@ class _KategoriBarangState extends State<KategoriBarang> {
                       icon: const Icon(Icons.edit)
                     ),
                     IconButton(
-                      onPressed:() {},
-                      icon: const Icon(Icons.highlight_remove))
+                      onPressed:() {
+                        deleteKategoriBarang(listKategoriBarang[index].id);
+                        setState(() {
+                          listKategoriBarang.removeAt(index);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Data Berhasil Dihapus')
+                            )
+                          );
+                        });
+                      },
+                      icon: const Icon(Icons.delete)
+                    )
                   ],
                 ),
               ),

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class KategoriBarangModel {
   final String nama;
-  int? id;
+  var id;
   KategoriBarangModel({
     required this.nama,
     this.id,
