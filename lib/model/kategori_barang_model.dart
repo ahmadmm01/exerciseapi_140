@@ -2,10 +2,10 @@ import 'dart:convert';
 
 class KategoriBarangModel {
   final String nama;
-  int id;
+  int? id;
   KategoriBarangModel({
     required this.nama,
-    required this.id,
+    this.id,
   });
 
   KategoriBarangModel copyWith({
@@ -20,8 +20,7 @@ class KategoriBarangModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'nama_kategori_barang': nama,
-      'id_kategori_barang': id,
+      'nama_kategori_barang': nama
     };
   }
 

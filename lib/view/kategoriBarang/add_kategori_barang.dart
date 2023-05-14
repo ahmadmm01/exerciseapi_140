@@ -1,6 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:materiapi/controller/kategori_barang_controller.dart';
 import 'package:materiapi/view/kategoriBarang/kategori_barang.dart';
+import '../../model/kategori_barang_model.dart';
 
 class AddKategoriBarang extends StatefulWidget {
   const AddKategoriBarang({super.key});
@@ -12,6 +15,11 @@ class AddKategoriBarang extends StatefulWidget {
 class _AddKategoriBarangState extends State<AddKategoriBarang> {
   final kategoriBarangController = KategoriBarangController();
   String? nama;
+
+  void AddKategoriBarang() async {
+    KategoriBarangModel kategoriBarang = KategoriBarangModel(nama: nama!);
+    await kategoriBarangController.addKategoriBarang(kategoriBarang);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -45,7 +53,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
               onPressed: () {
                 if (formkey.currentState!.validate()) {
                   formkey.currentState!.save();
-                  const AddKategoriBarang();
+                  AddKategoriBarang();
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
