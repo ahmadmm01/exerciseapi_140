@@ -54,9 +54,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
                   formkey.currentState!.save();
                   AddKategoriBarang();
                   Navigator.pop(context,true);
-                  var snackBar =
-                      const SnackBar(content: Text('Data Berhasil Disimpan'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Data Berhasil Disimpan')));
                 }
               },
               child: const Text('Simpan'),
