@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:materiapi/controller/kategori_barang_controller.dart';
-import 'package:materiapi/view/kategoriBarang/kategori_barang.dart';
 import '../../model/kategori_barang_model.dart';
 
 class AddKategoriBarang extends StatefulWidget {
@@ -54,10 +53,7 @@ class _AddKategoriBarangState extends State<AddKategoriBarang> {
                 if (formkey.currentState!.validate()) {
                   formkey.currentState!.save();
                   AddKategoriBarang();
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const KategoriBarang()));
+                  Navigator.pop(context,true);
                   var snackBar =
                       const SnackBar(content: Text('Data Berhasil Disimpan'));
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);

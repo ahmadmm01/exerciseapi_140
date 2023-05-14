@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:materiapi/controller/kategori_barang_controller.dart';
-import 'package:materiapi/view/kategoriBarang/kategori_barang.dart';
 
 class EditKategoriBarang extends StatefulWidget {
   final int? id;
