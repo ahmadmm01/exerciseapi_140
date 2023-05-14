@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:materiapi/view/kategoriBarang/kategori_barang.dart';
 
 class EditKategoriBarang extends StatefulWidget {
   const EditKategoriBarang({super.key});
@@ -10,11 +11,13 @@ class EditKategoriBarang extends StatefulWidget {
 class _EditKategoriBarangState extends State<EditKategoriBarang> {
   @override
   Widget build(BuildContext context) {
+    var formkey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edit Kategori Barang'),
       ),
       body: Form(
+        key: formkey,
         child: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
@@ -33,7 +36,19 @@ class _EditKategoriBarangState extends State<EditKategoriBarang> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (formkey.currentState!.validate()) {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const KategoriBarang(),
+                    )
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Data Berhasil Diubah'))
+                  );
+                }
+              },
               child: const Text('Simpan'),
             ),
           ],
